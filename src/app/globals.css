@@ -1,33 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --card: 0 1% 94%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 1% 89%;
+    --popover-foreground: 0 0% 22%;
+
+    --primary: 165 41% 41%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 1% 94%;
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 0 1% 100%;
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 0 1% 94%;
+    --accent-foreground: 0 0% 12%;
+
+    --destructive: 0 1% 94%;
+    --destructive-foreground: 0 0% 22%;
+
+    --radius: 0.5rem;
+
+    --border: 0 1% 94%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 98%;
+
+    --font-montserrat: 'Montserrat';
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 1% 6%;
+    --card-foreground: 0 0% 88%;
+
+    --popover: 0 1% 11%;
+    --popover-foreground: 0 0% 78%;
+
+    --primary: 345 100% 45%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 1% 6%; 
+    --secondary-foreground: 0 0% 88%;
+
+    --muted: 0 1% -4%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 1% 6%;
+    --accent-foreground: 0 0% 88%;
+
+    --destructive: 0 1% 26%;
+    --destructive-foreground: 0 0% 78%;
+
+    --border: 0 1% 6%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 98%;
+
+    --font-montserrat: 'Montserrat';
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-montserrat scroll-smooth;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  *::-webkit-scrollbar {
+    width: 0;
   }
 }
