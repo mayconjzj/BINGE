@@ -70,6 +70,16 @@ export type MediaProps = {
   id: number;
 };
 
+export type Genres = {
+  genres: Genre[];
+};
+
+export type Gallery = {
+  id: number;
+  name: string;
+  media: MediaDetails[];
+};
+
 export interface ILoadMediaService {
   loadMediaInfo: ({
     type,
@@ -81,4 +91,15 @@ export interface ILoadMediaService {
   }: {
     type: MediaProps['type'];
   }) => Promise<HttpResponse<MediaResults>>;
+
+  loadMediaGenres: ({
+    type
+  }: {
+    type: MediaProps['type'];
+  }) => Promise<HttpResponse<Genres>>;
+
+  loadMediaByGenre: ({
+    type,
+    id
+  }: MediaProps) => Promise<HttpResponse<Gallery[]>>;
 }

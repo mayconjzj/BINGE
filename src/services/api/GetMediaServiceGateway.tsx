@@ -29,4 +29,18 @@ export class GetMediaServiceGateway implements ILoadMediaService {
       url: `/trending/${type}/week`
     });
   }
+
+  async loadMediaGenres({ type }: { type: MediaProps['type'] }) {
+    return await this.httpClient.request({
+      method: 'GET',
+      url: `/genre/${type}/list`
+    });
+  }
+
+  async loadMediaByGenre({ type, id }: MediaProps) {
+    return await this.httpClient.request({
+      method: 'GET',
+      url: `/discover/${type}?with_genres=${id}&page=1`
+    });
+  }
 }
