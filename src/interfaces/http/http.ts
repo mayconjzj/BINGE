@@ -16,7 +16,7 @@ export type HttpResponse<T> = {
 };
 
 export type HttpClient = {
-  request: (
+  request: <R>(
     data: HttpRequest<BodyInit, Record<string, string>>
-  ) => Promise<HttpResponse<any>>;
+  ) => Promise<HttpResponse<R>>;
 };
