@@ -43,4 +43,25 @@ export class GetMediaServiceGateway implements ILoadMediaService {
       url: `/discover/${type}?with_genres=${id}&page=1`
     });
   }
+
+  async loadMediaCredits({ type, id }: MediaProps) {
+    return await this.httpClient.request({
+      method: 'GET',
+      url: `/${type}/${id}/credits`
+    });
+  }
+
+  async loadMediaTrailers({ type, id }: MediaProps) {
+    return await this.httpClient.request({
+      method: 'GET',
+      url: `/${type}/${id}/videos`
+    });
+  }
+
+  async loadMediaSearch({ page, query }: { page: string; query: string }) {
+    return await this.httpClient.request({
+      method: 'GET',
+      url: `/search/multi?query=${query}&page=${page}`
+    });
+  }
 }

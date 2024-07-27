@@ -80,6 +80,35 @@ export type Gallery = {
   media: MediaDetails[];
 };
 
+export type MediaCredit = {
+  id: number;
+  name: string;
+  character: string;
+  credit_id: string;
+  profile_path: string;
+  job: string;
+};
+
+export type MediaCredits = {
+  id: number;
+  cast: MediaCredit[];
+  crew: MediaCredit[];
+};
+
+export type MediaTrailers = {
+  id: number;
+  results: {
+    id: string;
+    iso_639_1: string;
+    iso_3166_1: string;
+    key: string;
+    name: string;
+    site: string;
+    size: number;
+    type: string;
+  }[];
+};
+
 export interface ILoadMediaService {
   loadMediaInfo: ({
     type,
@@ -101,5 +130,23 @@ export interface ILoadMediaService {
   loadMediaByGenre: ({
     type,
     id
-  }: MediaProps) => Promise<HttpResponse<Gallery[]>>;
+  }: MediaProps) => Promise<HttpResponse<MediaResults>>;
+
+  loadMediaCredits: ({
+    type,
+    id
+  }: MediaProps) => Promise<HttpResponse<MediaCredits>>;
+
+  loadMediaTrailers: ({
+    type,
+    id
+  }: MediaProps) => Promise<HttpResponse<MediaTrailers>>;
+
+  loadMediaSearch: ({
+    query,
+    page
+  }: {
+    query: string;
+    page: string;
+  }) => Promise<HttpResponse<MediaResults>>;
 }

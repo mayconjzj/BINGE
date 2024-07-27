@@ -21,10 +21,10 @@ export const MainNav = () => {
             <ActiveLink href="/">Incío</ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/movies">Filmes</ActiveLink>
+            <ActiveLink href="/discover/movies">Filmes</ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/series">Séries</ActiveLink>
+            <ActiveLink href="/discover/series">Séries</ActiveLink>
           </li>
         </ul>
       </nav>

@@ -5,9 +5,35 @@ import { HttpClientFactory } from '@/services/HttpClientFactory';
 
 import { Skeleton } from '@/components/shared/Skeleton';
 
+type DiscoverProps = {
+  params: {
+    media_type: string;
+  };
+};
+
+export const generateMetadata = ({ params }: DiscoverProps) => {
+  const mediaType = params.media_type === 'series' ? 'Séries' : 'Filmes';
+
+  return {
+    title: `${mediaType}`,
+    description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`,
+    openGraph: {
+      title: `${mediaType}`,
+      description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+    },
+    twitter: {
+      title: `${mediaType}`,
+      description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/${params.media_type}`
+    }
+  };
+};
+
 const TopRated = dynamic(
   () =>
-    import('@/components/layout/TopRated').then((module) => module.TopRated),
+    import('@/components/layout/TopRated').then((moduele) => moduele.TopRated),
   {
     loading: () => (
       <article className="h-[85vh] relative w-full text-foreground">
@@ -17,10 +43,10 @@ const TopRated = dynamic(
   }
 );
 
-const MediaTrendings = dynamic(
+const MediaCollection = dynamic(
   () =>
-    import('@/components/layout/MediaTrendings').then(
-      (module) => module.MediaTrendings
+    import('@/components/layout/MediaCollection').then(
+      (moduele) => moduele.MediaCollection
     ),
   {
     loading: () => (
@@ -44,15 +70,19 @@ const MediaTrendings = dynamic(
   }
 );
 
-export default function Home() {
+export default async function Discover({ params }: DiscoverProps) {
+  const mediaType = params.media_type === 'series' ? 'tv' : 'movie';
+
   return (
     <main>
       <TopRated
         loadMediaService={new GetMediaServiceGateway(HttpClientFactory())}
-        media_type="all"
+        media_type={mediaType}
       />
-      <MediaTrendings
+
+      <MediaCollection
         loadMediaService={new GetMediaServiceGateway(HttpClientFactory())}
+        media_type={mediaType}
       />
     </main>
   );

@@ -9,10 +9,16 @@ import { MediaBackdrop } from '../shared/MediaBackdrop';
 
 export type TopRatedProps = {
   loadMediaService: ILoadMediaService;
+  media_type: string;
 };
 
-export const TopRated = async ({ loadMediaService }: TopRatedProps) => {
-  const trendings = await loadMediaService.loadMediaTrendings({ type: 'all' });
+export const TopRated = async ({
+  loadMediaService,
+  media_type
+}: TopRatedProps) => {
+  const trendings = await loadMediaService.loadMediaTrendings({
+    type: media_type
+  });
   const { id, media_type: type } =
     trendings.body.results[
       Math.floor(Math.random() * trendings.body.results.length)

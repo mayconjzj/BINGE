@@ -2,11 +2,13 @@ import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
 
 import { MediaCollection } from '../shared/MediaCollection';
 
-export type CollectionProps = {
+export type MediaTrendingsProps = {
   loadMediaService: ILoadMediaService;
 };
 
-export const Collection = async ({ loadMediaService }: CollectionProps) => {
+export const MediaTrendings = async ({
+  loadMediaService
+}: MediaTrendingsProps) => {
   const [trendingsMovies, trendingsSeries] = await Promise.all([
     loadMediaService.loadMediaTrendings({ type: 'movie' }),
     loadMediaService.loadMediaTrendings({ type: 'tv' })
