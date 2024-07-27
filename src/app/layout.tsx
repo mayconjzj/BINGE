@@ -1,13 +1,24 @@
 import type { Metadata } from 'next';
 
-import './globals.css';
 import { Providers } from '@/context/Providers';
+import './globals.css';
 
 import { Header } from '@/components/layout/Header';
 
 export const metadata: Metadata = {
   title: 'Binge',
-  description: 'Filmes e séries'
+  description: 'Filmes e séries',
+  openGraph: {
+    title: 'Binge',
+    description: 'Procure por filmes e séries!'
+  },
+  twitter: {
+    title: 'Binge',
+    description: 'Procure por filmes e séries!'
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`
+  }
 };
 
 export default function RootLayout({

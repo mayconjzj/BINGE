@@ -59,7 +59,12 @@ export const TopRated = async ({
         <p className="max-w-[600px] line-clamp-3">{topRated.body.overview}</p>
         <div className="flex gap-2">
           <Button asChild>
-            <Link href={`/discover/${type}/${topRated.body.id}`}>Detalhes</Link>
+            <Link
+              href={`/discover/${type}/${topRated.body.id}`}
+              aria-label="Detalhes"
+            >
+              Detalhes
+            </Link>
           </Button>
         </div>
         <div>

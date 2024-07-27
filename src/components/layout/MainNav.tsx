@@ -18,13 +18,19 @@ export const MainNav = () => {
       <nav className="hidden md:block">
         <ul className="flex gap-x-6">
           <li>
-            <ActiveLink href="/">Incío</ActiveLink>
+            <ActiveLink href="/" aria-label="Início">
+              Início
+            </ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/discover/movies">Filmes</ActiveLink>
+            <ActiveLink href="/discover/movies" aria-label="Filmes">
+              Filmes
+            </ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/discover/series">Séries</ActiveLink>
+            <ActiveLink href="/discover/series" aria-label="Séries">
+              Séries
+            </ActiveLink>
           </li>
         </ul>
       </nav>
@@ -46,13 +52,19 @@ export const MainNav = () => {
       >
         <ul className="flex flex-col gap-2 font-bold">
           <li>
-            <ActiveLink href="/">Incío</ActiveLink>
+            <ActiveLink href="/" aria-label="Início">
+              Início
+            </ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/movies">Filmes</ActiveLink>
+            <ActiveLink href="/discover/movies" aria-label="Filmes">
+              Filmes
+            </ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/series">Séries</ActiveLink>
+            <ActiveLink href="/discover/series" aria-label="Séries">
+              Séries
+            </ActiveLink>
           </li>
         </ul>
       </nav>

@@ -31,7 +31,7 @@ export const Search = async ({
         {searchResults.results.length === 0 && (
           <div className="flex flex-col items-center gap-2">
             <p className="mt-8">Nenhum resultado encontrado</p>
-            <Link href="/discover/movies">
+            <Link href="/discover/movies" aria-label="Voltar">
               <Button>Voltar</Button>
             </Link>
           </div>
@@ -42,7 +42,10 @@ export const Search = async ({
             className="flex gap-x-4 gap-y-2 rounded-xl overflow-hidden"
           >
             {result.poster_path && (
-              <Link href={`/discover/${result.media_type}/${result.id}`}>
+              <Link
+                href={`/discover/${result.media_type}/${result.id}`}
+                aria-label={result.title || result.name}
+              >
                 <MediaPoster
                   className="min-w-[150px] min-h-[225px] scale-100"
                   alt={result.title || result.name}
@@ -54,7 +57,10 @@ export const Search = async ({
               <Skeleton className="min-w-[150px] min-h-[225px] scale-100" />
             )}
             <div className="flex flex-col gap-1 h-[200px] m-auto relative w-full">
-              <Link href={`/discover/${result.media_type}/${result.id}`}>
+              <Link
+                href={`/discover/${result.media_type}/${result.id}`}
+                aria-label={result.title || result.name}
+              >
                 <h2 className="font-bold text-xl line-clamp-1">
                   {result.title || result.name}
                 </h2>

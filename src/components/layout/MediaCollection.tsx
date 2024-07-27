@@ -47,7 +47,10 @@ export const MediaCollection = async ({
           <ul className="overflow-x-auto flex">
             {genre.media.map((media) => (
               <li key={media.id}>
-                <Link href={`/discover/${media.media_type}/${media.id}`}>
+                <Link
+                  href={`/discover/${media.media_type}/${media.id}`}
+                  aria-label="Detalhes"
+                >
                   {media.poster_path && (
                     <MediaPoster
                       className="object-cover min-w-[150px] h-[225px] scale-90 hover:scale-100 duration-200"
