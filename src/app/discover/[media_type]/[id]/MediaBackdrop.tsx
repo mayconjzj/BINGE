@@ -1,3 +1,5 @@
+import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
+
 import { MediaBackdrop as Backdrop } from '@/components/shared/MediaBackdrop';
 
 import { MediaInfoProps } from './page';
@@ -5,7 +7,7 @@ import { MediaInfoProps } from './page';
 export const MediaBackdrop = async ({
   loadMediaService,
   params
-}: MediaInfoProps) => {
+}: MediaInfoProps & { loadMediaService: ILoadMediaService }) => {
   const dataMediaInfo = await loadMediaService.loadMediaInfo({
     id: params.id,
     type: params.media_type

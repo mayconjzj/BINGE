@@ -1,3 +1,5 @@
+import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
+
 import { MediaPoster } from '@/components/shared/MediaPoster';
 import { Skeleton } from '@/components/shared/Skeleton';
 
@@ -6,7 +8,7 @@ import { MediaInfoProps } from './page';
 export const MediaCredits = async ({
   loadMediaService,
   params
-}: MediaInfoProps) => {
+}: MediaInfoProps & { loadMediaService: ILoadMediaService }) => {
   const { body: dataMediaCredits } = await loadMediaService.loadMediaCredits({
     id: params.id,
     type: params.media_type

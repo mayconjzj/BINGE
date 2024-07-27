@@ -1,9 +1,11 @@
+import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
+
 import { MediaInfoProps } from './page';
 
 export const MediaTrailers = async ({
   loadMediaService,
   params
-}: MediaInfoProps) => {
+}: MediaInfoProps & { loadMediaService: ILoadMediaService }) => {
   const { body: dataMediaTrailers } = await loadMediaService.loadMediaTrailers({
     id: params.id,
     type: params.media_type

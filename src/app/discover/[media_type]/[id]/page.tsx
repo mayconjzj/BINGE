@@ -1,13 +1,11 @@
 import dynamic from 'next/dynamic';
 
-import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
 import { GetMediaServiceGateway } from '@/services/api/GetMediaServiceGateway';
 import { HttpClientFactory } from '@/services/HttpClientFactory';
 
 import { Skeleton } from '@/components/shared/Skeleton';
 
 export type MediaInfoProps = {
-  loadMediaService: ILoadMediaService;
   params: {
     id: number;
     media_type: string;
