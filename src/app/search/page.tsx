@@ -1,11 +1,9 @@
 import dynamic from 'next/dynamic';
 
-import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
 import { GetMediaServiceGateway } from '@/services/api/GetMediaServiceGateway';
 import { HttpClientFactory } from '@/services/HttpClientFactory';
 
 export type SearchProps = {
-  loadMediaService: ILoadMediaService;
   searchParams: {
     query: string;
     page: string;

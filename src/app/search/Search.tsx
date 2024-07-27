@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { ILoadMediaService } from '@/interfaces/ILoadMediaService';
+
 import { Button } from '@/components/shared/Button';
 import { MediaPoster } from '@/components/shared/MediaPoster';
 import { Skeleton } from '@/components/shared/Skeleton';
@@ -12,7 +14,7 @@ import { PaginationLinks } from './PaginationLinks';
 export const Search = async ({
   loadMediaService,
   searchParams
-}: SearchProps) => {
+}: SearchProps & { loadMediaService: ILoadMediaService }) => {
   const { body: searchResults } = await loadMediaService.loadMediaSearch({
     page: searchParams.page,
     query: searchParams.query
