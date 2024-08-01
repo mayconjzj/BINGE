@@ -48,7 +48,7 @@ export const MediaCollection = async ({
             {genre.media.map((media) => (
               <li key={media.id}>
                 <Link
-                  href={`/discover/${media.media_type}/${media.id}`}
+                  href={`/discover/${media_type}/${media.id}`}
                   aria-label="Detalhes"
                 >
                   {media.poster_path && (
