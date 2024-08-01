@@ -18,7 +18,7 @@ export const MediaCollection = ({ trendings, title }: MediaCollectionProps) => {
       <ul className="overflow-x-auto flex">
         {trendings.body.results.map((media) => (
           <li key={media.id}>
-            <Link href={`/discover/movie/${media.id}`}>
+            <Link href={`/discover/${media.media_type}/${media.id}`}>
               {media.poster_path && (
                 <MediaPoster
                   alt={media.title || media.name}
